@@ -9,6 +9,11 @@ import (
 	"github.com/labstack/echo"
 )
 
+func Addition(a, b int) int {
+	result := a + b
+	return result
+}
+
 func LoginUsersController(c echo.Context) error {
 	var userInput models.UserRequest
 	c.Bind(&userInput)
@@ -65,10 +70,10 @@ func GetUsersController(c echo.Context) error {
 	}
 
 	// userId dari JWT
-	userId := middleware.ExtractUserIdFromJWT(c)
+	// userId := middleware.ExtractUserIdFromJWT(c)
 
 	return c.JSON(http.StatusOK, models.UserResponse{
-		Code:    userId,
+		Code:    http.StatusOK,
 		Message: "Success get data user",
 		Status:  "success",
 		Data:    users,

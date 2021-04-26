@@ -51,5 +51,3 @@ type UserResponse struct {
 	Data    []Users `json:"data", form:"data"`
 	Status  string  `json:"status", form:"status"`
 }
-
-

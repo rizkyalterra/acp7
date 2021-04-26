@@ -11,12 +11,12 @@ import (
 func GetUsersCompanyController(c echo.Context) error {
 
 	var userCompanies []models.UserCompany
-	err := configs.DB.Preload("companies").Find(&userCompanies).Error
+	err := configs.DB.Find(&userCompanies).Error
 
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, models.UserResponse{
 			Code:    http.StatusInternalServerError,
-			Message: err.Error(),
+			Message: "",
 			Status:  "error",
 		})
 	}
